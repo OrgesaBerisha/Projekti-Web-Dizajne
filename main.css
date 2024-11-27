@@ -54,3 +54,42 @@ body{
 .nav-links a :hover{
     color: #b06c6c;
  }
+ /*Faqja1 Section*/
+ .faqja1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+    padding: 32px;
+    background-color: #d0c9b5;
+ }
+ .faqja1-left{
+    flex: 1;
+    padding-right: 32px;
+    padding-left: 160px;
+    margin-top: -160px;
+    max-width: 100%;
+ }
+ .faqja1-title{
+    font-family:"Merienda", cursive ;
+    font-size: 80px;
+    color: black;
+    line-height: 1.5;
+    margin-bottom: 16px;
+ }
+ .faqja1-description{
+    margin-top: 16px;
+    font-size: 19px;
+    color: #070606;
+    line-height: 1.5;
+ }
+ .faqja1-image img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 1;
+ }
+ /*.container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
+ }*/
