@@ -87,6 +87,9 @@ body{
     height: auto;
     border-radius: 1;
  }
+ img{
+    border-radius: 10px;
+ }
  .container{
     display: flex;
     justify-content: center;
