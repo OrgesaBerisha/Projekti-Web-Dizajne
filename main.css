@@ -96,3 +96,63 @@ body{
     align-items: flex-start;
     padding-top: 20px;
  }
+
+ /*--PJESA E CATEGORY--*/
+
+/* Stilet për tekstin e fjaLes "Category" */
+.title{
+   font-family:"Merienda", cursive;
+   font-size: 100px;
+   color: black;
+   text-align: center;     
+   padding-top: 20px;
+   margin-bottom: 20px;
+}
+
+/*Stilet per fotot e Category*/
+.container1{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap:30px;
+}
+
+.category{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   width: 250px;
+   height: 250px;
+  /* border:2px solid black;*/
+   text-align: center;
+   padding: 10px;
+   transition: transform 0.3s ease;
+
+}
+
+/*-- Nje transofrmim me scale--*/
+.category:hover {
+   transform: scale(1.1);
+}
+.category img{
+   width:200px;
+   height: 200px;
+   margin-bottom: 13px;
+   object-fit: cover;
+   border-radius: 6px;
+  
+   
+}
+.posht-categoris{
+   font-size: 14px;
+   color: #070606;
+   font-family:"Merienda", cursive; ;
+   border:2px solid black;
+   border-radius: 50px;
+   width: 160px;          
+   height: 550px;   
+   align-items: center;     
+   margin-bottom: 10px;
+
+}
