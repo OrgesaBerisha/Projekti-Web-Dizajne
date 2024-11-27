@@ -87,9 +87,9 @@ body{
     height: auto;
     border-radius: 1;
  }
- /*.container{
+ .container{
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding-top: 20px;
- }*/
+ }
