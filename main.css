@@ -79,7 +79,7 @@ body{
  .faqja1-description{
     margin-top: 16px;
     font-size: 19px;
-    color: #070606;
+    color: black;
     line-height: 1.5;
  }
  .faqja1-image img{
@@ -146,7 +146,7 @@ body{
 }
 .posht-categoris{
    font-size: 14px;
-   color: #070606;
+   color: black;
    font-family:"Merienda", cursive; ;
    border:2px solid black;
    border-radius: 50px;
@@ -216,17 +216,18 @@ body{
  }
  .description p {
    font-size: 27px;
-   margin-bottom: 1px;
+   margin-bottom: 30px;
  }
  /*SEE MORE BUTTON*/
  .description button {
-   background-color: #d0c9b5;
    color: black;
    padding: 10px 20px;
    font-size: 13px;
    border-radius: 50px;
-   cursor: pointer;
    transition: all 0.3s ease;
+   font-size: 20px;
+
+
  }
  .description button:hover {
    background-color: #4e4b47;
