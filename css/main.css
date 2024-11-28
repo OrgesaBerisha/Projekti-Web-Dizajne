@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&family=Merienda:wght@300..900&display=swap');
+body, 
+ul, 
+li{
+    margin: 0;
+    padding: 0;
+    background-color: #d0c9b5;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+/* NAVBAR */
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #d0c9b5;
+    border-bottom: 1px solid #d0c9b5;
+    gap:32px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+ }
+
+ .logo img{
+    width: 125px;
+    height: auto;
+ }
+
+.logo h1{
+    font-size: 40px;
+    font-weight: 400;
+    color: #070606;
+    font-family:"Merienda", cursive;
+}
+
+.nav-links{
+    list-style: none;
+    display: flex;
+    gap:60px;
+
+}
+
+.nav-links li{
+    font-size: 20px;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color:  #4e4b47;
+}
+
+.nav-links a :hover{
+    color: #b06c6c;
+ }
