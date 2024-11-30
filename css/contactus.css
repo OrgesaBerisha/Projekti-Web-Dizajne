@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&family=Merienda:wght@300..900&display=swap');
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+/*Seksioni me dy kolona per porosite dhe formularin e regjistrimit*/
+.register-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+/*Ana e majte e image-text container*/
+.orders-img-container{
+    position: relative;
+}
+
+.orders-img{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.orders-text-container{
+    padding: 10px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.orders-title{
+    font-family:"Merienda", cursive ;
+    font-size: 36px;
+    line-height: 1.5;
+}
+
+.orders-description{
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 500px;
+    margin-left: 30px;
+}
+
+/*Register Form*/
+.register-container{
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 4px 6px 8px #836758;
+}
+
+.register-title{
+    font-family: "Merienda", cursive;
+    text-align: center;
+}
+
+.register-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-element{
+    display: flex;
+    flex-direction: column;
+}
+
+.register-button{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #b06c6c;
+    color: #fff;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 100px;
+    align-self: center;
+    margin-top: 24px;
+}
+
+.register-button:hover {
+    background-color: #9a5959;
+}
+
+.login-link{
+    text-decoration: none;
+    color: #9a5959;
+}
+.bottom-text{
+    text-align: center;
+}
+
+.form-input{
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #fcf7ea;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.form-input:focus{
+    outline: none;
+    border-color: #b06c6c;
+}
+
+/*Per te bere responsive faqen*/
+@media (max-width: 768px){
+    .main-container{
+        padding: 10px 30px;
+    }
+    .register-section{
+        grid-template-columns: 1fr;
+    }
+}
+
+
