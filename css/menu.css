@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&family=Merienda:wght@300..900&display=swap');
+
+
+body,ul,li{
+    margin: 0;
+    padding: 0;
+    background-color: #d0c9b5;
+    box-sizing: border-box;
+}
