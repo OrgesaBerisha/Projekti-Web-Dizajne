@@ -10,83 +10,103 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar">
-      <ul class="nav-links">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="menu.html">MENU</a></li>
-      </ul>
-      <div class="logo">
-        <img src="img/Logo.png" alt="Daisy Logo">
-        <h1>DAISY</h1>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#">ABOUT</a></li>
-        <li><a href="contactus.html" id="active">CONTACT US</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!--Contact Us Page-->
-  <main class="main-container">
-    <section class="register-section">
-      <div class="orders-img-container">
-        <img src="./img/orders.png" class="orders-img" />
-        <div class="orders-text-container">
-          <h1 class="orders-title">Online Ordering</h1>
-          <p class="orders-description">
-            To make your experience a lot easier, open a new account and have
-            your coffee delivered at your door-step or your work
-          </p>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="menu.html">MENU</a></li>
+            </ul>
+        <div class="logo">
+            <img src="img/Logo.png" alt="Daisy Logo">
+            <h1>DAISY</h1>
         </div>
-      </div>
-      <div class="register-container">
-        <h1 class="register-title">Register</h1>
-        <form class="register-form" action="/submit-login" method="GET">
-          <div class="form-input-container-">
-            <div class="input-element">
-              <label for="fullName">Full Name</label>
-              <input class="form-input" type="text" name="fullName" size="15" maxlength="30"
-                placeholder="Enter your full name" />
-            </div>
-            <div class="input-element">
-              <label for="lastName">Last Name</label>
-              <input class="form-input" type="text" name="lastName" size="15" maxlength="30"
-                placeholder="Enter your last name" />
-            </div>
-            <div class="input-element">
-              <label for="email">Email</label>
-              <input class="form-input" type="email" name="lastName" placeholder="Enter your email" />
-            </div>
-            <div class="input-element">
-              <label for="phoneNumber">Phone Number</label>
-              <input class="form-input" type="tel" name="phoneNumber" placeholder="Enter your phone number" />
-            </div>
-            <div class="input-element">
-              <label for="cities">City</label>
-              <select name="cities" class="form-input">
-                <option value="Gjakove">Gjakove</option>
-                <option value="Mitrovice">Mitrovice</option>
-                <option value="Peje">Peje</option>
-                <option value="Prishtine">Prishtine</option>
-                <option value="Prizren">Prizren</option>
-              </select>
+            <ul class="nav-links">
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="contactus.html" id="active">CONTACT US</a></li> 
+            </ul>
+        </nav>
+    </header>
+    
+    <!--Contact Us Page-->
+    <main class="main-container">
+        <section class="register-section">
+          <div class="orders-img-container">
+            <img src="./img/orders.png" class="orders-img" />
+            <div class="orders-text-container">
+              <h1 class="orders-title">Online Ordering</h1>
+              <p class="orders-description">
+                To make your experience a lot easier, open a new account and have
+                your coffee delivered at your door-step or your work
+              </p>
             </div>
           </div>
-          <button class="register-button" type="submit" value="Subscribe">
-            Register
-          </button>
-          <p class="bottom-text">
-            Already have an account? <a class="login-link" href="login.html">Log in</a>
-          </p>
-        </form>
-      </div>
-    </section>
+          <div class="register-container">
+            <h1 class="register-title">Register</h1>
+            <form class="register-form" action="/submit-login" method="GET">
+              <div class="form-input-container-">
+                <div class="input-element">
+                  <label for="fullName">Full Name</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    name="fullName"
+                    size="15"
+                    maxlength="30"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+                <div class="input-element">
+                  <label for="lastName">Last Name</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    name="lastName"
+                    size="15"
+                    maxlength="30"
+                    placeholder="Enter your last name"
+                  />
+                </div>
+                <div class="input-element">
+                  <label for="email">Email</label>
+                  <input
+                    class="form-input"
+                    type="email"
+                    name="lastName"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                <div class="input-element">
+                  <label for="phoneNumber">Phone Number</label>
+                  <input
+                    class="form-input"
+                    type="tel"
+                    name="phoneNumber"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+                <div class="input-element">
+                  <label for="cities">City</label>
+                  <select name="cities" class="form-input">
+                    <option value="Gjakove">Gjakove</option>
+                    <option value="Mitrovice">Mitrovice</option>
+                    <option value="Peje">Peje</option>
+                    <option value="Prishtine">Prishtine</option>
+                    <option value="Prizren">Prizren</option>
+                  </select>
+                </div>
+              </div>
+              <button class="register-button" type="submit" value="Subscribe">
+                Register
+              </button>
+              <p class="bottom-text">
+                Already have an account? <a class="login-link" href="login.html">Log in</a>
+              </p>
+            </form>
+          </div>
+        </section>
+                
+    </main>
 
-  </main>
-
-  
- 
 </body>
 
 </html>
