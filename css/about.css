@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&family=Merienda:wght@300..900&display=swap');
+
+/*Seksioni i Pershkrimit*/
+.main-section{
+    text-align: center;
+    margin-top: 25px;
+}
+.main-description h1{
+    font-size: 50px;
+    color: #5a3e36;
+    margin-bottom: 20px;
+    font-family: "Merienda", cursive;
+}
+.shop-description{
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+}
+
+.shop-description p{
+    font-size: 20px;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.paragraph1{
+    background-color: #fff8e1;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px;
+    font-weight: bold;
+    color: #5a3e36;
+}
+
+/*Seksioni i fotove*/
+.main-images{
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.main-images img{
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
