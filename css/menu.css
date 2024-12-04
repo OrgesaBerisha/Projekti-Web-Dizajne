@@ -1,10 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&family=Merienda:wght@300..900&display=swap');
 
+.quote-menu {
+   padding: 40px 20px;
+   background-color:  #d0c9b5 ;
+   text-align: center;
+}
 
-
+.quote-text {
+   font-family: 'Merienda', cursive;
+   font-size: 24px;
+   color: black;
+   font-weight: 400;
+   max-width: 800px;
+   margin: auto;
+  
+   padding: 20px;
+   border-left: 5px solid #b06c6c;
+   line-height: 1.5;
+    box-shadow: 4px 6px 8px #836758;
+    border-radius: 10px;
+}
 /*Menu Section */
     .menu {
-      padding: 20px;
+      padding: 10px;
       text-align: center;
       background-color:  #d0c9b5 ;
       
@@ -15,7 +33,7 @@
       color: black;
       margin-bottom: 30px;
       font-family: 'Merienda', cursive;
-      padding: 40px 0;
+      padding: 50px 0;
     
    
    }
@@ -61,14 +79,24 @@
       color:  #4e4b47;
       margin: 5px;
    }
+
+   .price{
+      font-weight: bold;
+      padding: 10px;
    
-   .menu-item button {
+   }
+
+
+   
+   .order-btn {
       background-color: #b06c6c;
       color: white;
-      border: none;
+      border: none; 
       padding: 10px 20px;
       border-radius: 4px;
       transition: background-color 0.3s ease;
+   
+
    
    }
    
