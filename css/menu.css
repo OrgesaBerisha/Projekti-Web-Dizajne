@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&family=Merienda:wght@300..900&display=swap');
 
 .quote-menu {
-   padding: 40px 20px;
+   padding: 30px;
    background-color:  #d0c9b5 ;
    text-align: center;
 }
@@ -13,16 +13,14 @@
    font-weight: 400;
    max-width: 800px;
    margin: auto;
-  
    padding: 20px;
-   border-left: 5px solid #b06c6c;
    line-height: 1.5;
     box-shadow: 4px 6px 8px #836758;
     border-radius: 10px;
 }
 /*Menu Section */
     .menu {
-      padding: 10px;
+      padding-top: 10px;
       text-align: center;
       background-color:  #d0c9b5 ;
       
