@@ -47,5 +47,58 @@
     border-radius: 8px;
 }
 
+/*Seksioni i Customer Reviews*/
+.main-reviews-section{
+    text-align: center;
+    padding: 50px 20px;
+    color: #5a3e36;
+}
 
+.reviews-container{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-top: 50px;
+}
 
+.review-card{
+    background-color: #fff8e1;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    border: 2px solid #5a3e36;
+    box-sizing: border-box;
+    flex: 1px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+    transform: scale(1.1);
+}
+
+.review-card blockquote{
+    font-size: 16px;
+    color: #5a3e36;
+    font-style: 'Arial', sans-serif ;
+    margin-bottom: 15px;
+}
+
+.review-card img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+.review-card h3{
+    margin: 10px;
+}
+
+.review-card p{
+    color: gold;
+    font-size: 20px;
+}
