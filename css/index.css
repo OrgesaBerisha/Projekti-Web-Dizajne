@@ -7,7 +7,8 @@
     justify-content: space-between ;
     padding: 32px;
     background-color: #d0c9b5;
-    margin-top: 25px;
+    margin-top: 20px;
+    
  }
 
  .faqja1-left{
@@ -28,7 +29,7 @@
 
  .faqja1-description{
     margin-top: 16px;
-    font-size: 19px;
+    font-size: 21px;
     color: black;
     line-height: 1.5;
  }
@@ -36,12 +37,14 @@
     flex: 1;
     display: flex;
     justify-content: center;
+    
  }
 
- .faqja1-image img{
+ .faqja1-right img{
     max-width: 100%;
     height: auto;
-    border-radius: 1;
+    border-radius: 4px;
+    
  }
  
  .container{
@@ -81,6 +84,7 @@
    text-align: center;
    padding: 10px;
    transition: transform 0.3s ease;
+   
 }
 
 /*-- Nje transofrmim me scale--*/
@@ -99,23 +103,25 @@
 .posht-categoris{
    font-size: 14px;
    color: black;
-   font-family:"Merienda", cursive; ;
+   font-family:"Merienda", cursive; 
    border:2px solid black;
    border-radius: 50px;
    width: 160px;          
    height: 550px;   
    align-items: center;     
    margin-bottom: 10px;
+   background-color: #d0c9b5;
 }
 
 /*Container 2*/
 /*Titulli menu*/
 .menu-title {
    padding: 60px;
-   font-size: 20px;
-   color: #4e4b47;
+   font-size: 40px;
+   color:  #5a3e36;
    margin-top: 20px;
    text-align: center;
+   font-family:"Merienda", cursive;  ;
  }
 
  /*Madhesia dhe padding per container*/
@@ -193,18 +199,18 @@
  }
 
  .description button:hover {
-   background-color: #4e4b47;
+   background-color: #5a3e36;
    transform: scale(1.05);
  }
 
  /*ABOUT US*/
 .AboutUs-title{
    text-align: center;
-   font-size: 20px;
+   font-size: 40px;
    margin-bottom: -20px;
    margin-top: 100px;
-   color: #4e4b47;
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   color: #5a3e36;
+   font-family: "Merienda", cursive;
 }
 
 .text{
@@ -227,3 +233,4 @@
    height: 500px;
    transition: transform 0.3s ease;
 }
+

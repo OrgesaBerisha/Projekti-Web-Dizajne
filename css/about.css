@@ -102,3 +102,40 @@
     color: gold;
     font-size: 20px;
 }
+
+@media (max-width: 768px) {
+
+    .main-description h1 {
+        font-size: 35px;
+    }
+
+    .shop-description p {
+        font-size: 16px;
+    }
+
+    .main-images {
+        padding: 10px;
+    }
+
+    .main-images img {
+        width: 80%;
+    }
+
+    .reviews-container {
+        flex-direction: column; 
+        justify-content: center;
+    }
+
+    .review-card {
+        width: 100%; 
+        margin-bottom: 15px;
+    }
+
+    .review-card blockquote {
+        font-size: 14px;
+    }
+
+    .review-card p {
+        font-size: 16px;
+    }
+}

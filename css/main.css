@@ -103,7 +103,7 @@ footer {
     text-align: center; 
     flex: 2;
     flex-direction: column;
-    margin-left: -450px;
+    margin-left: -600px;
     margin-top: 0;
     margin-bottom: 0;
  }
@@ -141,4 +141,46 @@ footer {
     margin-bottom: 1px;
     text-align: center;
  }
+
+
+
+ /*RESPONSIVE per navbar dhe footer*/
   
+ @media (max-width: 768px) {
+   /* Navbar */
+   .navbar {
+       flex-direction: column; 
+       gap: 20px;
+       padding: 10px;
+   }
+
+   .nav-links {
+       flex-direction: column;
+       gap: 20px;
+       align-items: center;
+   }
+
+   .logo h1 {
+       font-size: 28px;
+   }
+
+   /* Footer */
+   .footer-content {
+       flex-direction: column; 
+       text-align: center;
+       gap: 20px;
+   }
+
+   .footer-contact {
+       text-align: center;
+   }
+
+   .footer-main {
+       margin-left: 0;
+   }
+
+   .footer-nav {
+       font-size: 14px;
+       text-align: center;
+   }
+}
