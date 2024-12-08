@@ -101,10 +101,51 @@
     <div class="AboutUs-title">ABOUT US</div>
     <div class="text">
         <h1>Welcome to Daisy, the perfect space for a memorable experience</h1>
+        <div id="slideshow-container">
+            <div id="slideshow-wrapper">
+                <button class="slideshow-button prev" onclick="prevImage()"> &gt;</button>
+                <img id="slideshow" src="img/shop.png" alt="Slideshow Image">
+                <button class="slideshow-button next" onclick="nextImage()">&lt;</button>
+            </div>
+        </div>
     </div>
-    <div class="ambienti">
-        <img src="img/shop.png" alt="shop" class="shop-picture">
-    </div>
+    <!--Script per slideshow-->
+    <script>
+        var imgArray = [
+            "img/shop.png",
+            "img/shop1.png.png",
+            "img/shop2.png.png"
+
+        ];
+        var i = 0;
+
+        function showImage() {
+            document.getElementById("slideshow").src = imgArray[i];
+        }
+
+        function nextImage() {
+            if (i < imgArray.length - 1) {
+                i++;
+            } else {
+                i = 0;
+            }
+            showImage();
+        }
+
+        function prevImage() {
+            if (i > 0) {
+                i--;
+            } else {
+                i = imgArray.length - 1;
+            }
+            showImage();
+        }
+
+
+        window.onload = showImage;
+    </script>
+
+    <!--Footer-->
     <footer>
         <div class="footer-content">
             <div class="footer-contact">
@@ -129,6 +170,14 @@
                 </p>
             </div>
     </footer>
+
+
+
+
+
+
+
+
 
 
 
