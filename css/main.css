@@ -1,59 +1,62 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&family=Merienda:wght@300..900&display=swap");
-body, 
-ul, 
-li{
+
+body,
+ul,
+li {
     margin: 0;
     padding: 0;
     background-color: #d0c9b5;
     box-sizing: border-box;
 }
-body{
+
+body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
+
 /* NAVBAR */
-.navbar{
+.navbar {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px 40px;
     background-color: #d0c9b5;
     border-bottom: 1px solid #d0c9b5;
-    gap:32px;
+    gap: 32px;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 5px;
- }
+}
 
- .logo img{
+.logo img {
     width: 125px;
     height: auto;
- }
+}
 
-.logo h1{
+.logo h1 {
     font-size: 40px;
     font-weight: 400;
     color: #070606;
-    font-family:"Merienda", cursive;
+    font-family: "Merienda", cursive;
 }
 
-.nav-links{
+.nav-links {
     list-style: none;
     display: flex;
-    gap:60px;
+    gap: 60px;
 
 }
 
-.nav-links li{
+.nav-links li {
     font-size: 20px;
 }
 
-.nav-links a{
+.nav-links a {
     text-decoration: none;
-    color:  #4e4b47;
+    color: #4e4b47;
 }
 
 .nav-links li :hover,
@@ -68,119 +71,120 @@ footer {
     color: black;
     font-family: "Arial", sans-serif;
     margin-top: 30px;
- }
- 
- .footer-content {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    flex-wrap: wrap; 
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
- }
- 
- .footer-contact {
+}
+
+.footer-contact {
     text-align: left;
-    flex: 1; 
+    flex: 1;
     margin: 10px;
-    margin-top: 0; 
- }
- 
- .footer-contact h4 {
+    margin-top: 0;
+}
+
+.footer-contact h4 {
     font-size: 20px;
     margin-bottom: 10px;
     font-weight: bold;
     font-family: "Merienda", cursive;
-    
- }
- 
- .footer-contact p {
+
+}
+
+.footer-contact p {
     font-size: 16px;
     margin: 5px 0;
- }
- 
- .footer-main {
-    text-align: center; 
+}
+
+.footer-main {
+    text-align: center;
     flex: 2;
     flex-direction: column;
     margin-left: -600px;
     margin-top: 0;
     margin-bottom: 0;
- }
- 
- .footer-line {
+}
+
+.footer-line {
     font-size: 18px;
     margin-bottom: 5px;
     font-family: "Merienda", cursive;
     text-align: center;
- }
- 
- .footer-nav {
+}
+
+.footer-nav {
     margin-top: 15px;
     font-size: 16px;
-    
- }
- 
- .footer-nav a {
+
+}
+
+.footer-nav a {
     text-decoration: none;
     color: #4e4b47;
     margin-right: 10px;
- }
- 
- .footer-copyright {
-    margin-top: 15px; 
+}
+
+.footer-copyright {
+    margin-top: 15px;
     font-size: 14px;
     color: #070606;
     text-align: center;
- }
- 
- .footer-copyright a {
+}
+
+.footer-copyright a {
     text-decoration: none;
     color: #070606;
     font-size: 14px;
     margin-bottom: 1px;
     text-align: center;
- }
+}
 
 
 
- /*RESPONSIVE per navbar dhe footer*/
-  
- @media (max-width: 768px) {
-   /* Navbar */
-   .navbar {
-       flex-direction: column; 
-       gap: 20px;
-       padding: 10px;
-   }
+/*RESPONSIVE per navbar dhe footer*/
 
-   .nav-links {
-       flex-direction: column;
-       gap: 20px;
-       align-items: center;
-   }
+@media (max-width: 768px) {
 
-   .logo h1 {
-       font-size: 28px;
-   }
+    /* Navbar */
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+    }
 
-   /* Footer */
-   .footer-content {
-       flex-direction: column; 
-       text-align: center;
-       gap: 20px;
-   }
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
 
-   .footer-contact {
-       text-align: center;
-   }
+    .logo h1 {
+        font-size: 28px;
+    }
 
-   .footer-main {
-       margin-left: 0;
-   }
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
 
-   .footer-nav {
-       font-size: 14px;
-       text-align: center;
-   }
+    .footer-contact {
+        text-align: center;
+    }
+
+    .footer-main {
+        margin-left: 0;
+    }
+
+    .footer-nav {
+        font-size: 14px;
+        text-align: center;
+    }
 }
