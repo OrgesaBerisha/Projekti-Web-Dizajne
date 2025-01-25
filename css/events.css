@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&family=Merienda:wght@300..900&display=swap');
+
+.events-section {
+    padding: 40px 20px;
+    max-width: 950px;
+    margin: 40px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 7px;
+    border: 1px solid #6F4E37;
+}
+
+.events-section h1 {
+    text-align: center;
+    color: #6F4E37;
+    font-size: 35px;
+    margin-bottom: 30px;
+    font-family: "Merienda", cursive;
+}
+
+/*Karta e Eventeve*/
+.event-card {
+    display: flex;
+    background-color: #F3E9DD;
+    border: 1px solid #DCC7AA;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    border-color: #A67C52;
+}
+
+/*Imazhet e Eventeve*/
+.event-card img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-right: 1px solid #DCC7AA;
+}
+
+/*Informacioni i Eventeve*/
+.event-info {
+    flex: 1;
+    padding: 20px;
+    color: #6F4E37;
+}
+
+.event-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #A67C52;
+}
+
+.event-info p {
+    margin: 5px;
+    font-size: 16px;
+    color: #6F4E37;
+}
+
+.event-info a:hover {
+    background-color: #A67C52;
+}
+
+/*Per te bere faqen responsive*/
+@media (max-width: 768px) {
+    .events-section {
+        padding: 20px 15px;
+    }
+
+    .events-section h1 {
+        font-size: 28px;
+    }
+
+    .event-card {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    .event-info {
+        padding: 15px;
+    }
+
+    .event-info h2 {
+        font-size: 20px;
+    }
+
+    .event-info p {
+        font-size: 14px;
+    }
+}
