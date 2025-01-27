@@ -284,36 +284,7 @@
       max-width: 100%;
    }
 
-/*
-      .title {
-         font-size: 80px;
-      }
-   
-      .containerrr {
-         display: flex;
-         flex-direction: column;
-         gap: 20px;
-      }
-   
-      .category {
-         width: 100%; 
-         height: auto; 
-         padding: 20px;
-        
-      }
-   
-      .category img {
-         width: 250px; 
-         height: 250px;
-      }
-   
-      .posht-categoris {
-         width: 130px;
-         font-size: 13px;
-         height: 40px;
 
-   }
-         */
 
    .menu-title {
       font-size: 30px;
