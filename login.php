@@ -1,3 +1,25 @@
+<?php
+session_start();
+include_once 'Database.php';
+include_once 'User.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $db = new Database();
+    $connection = $db->getConnection();
+    $user = new User($connection);
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if ($user->login($username, $password)) {
+        header("Location: menu.php");
+        exit;
+    } else {
+        echo "Invalid login credentials!";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,22 +37,22 @@
   <header>
     <nav class="navbar">
       <ul class="nav-links">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="menu.html">MENU</a></li>
+        <li><a href="index.php">HOME</a></li>
+        <li><a href="menu.php">MENU</a></li>
       </ul>
       <div class="logo">
         <img src="img/Logo.png" alt="Daisy Logo">
         <h1>DAISY</h1>
       </div>
       <ul class="nav-links">
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="events.html">EVENTS</a></li>
-        <li><a href="contactus.html" id="active">CONTACT US</a></li>
+        <li><a href="about.php">ABOUT</a></li>
+        <li><a href="events.php">EVENTS</a></li>
+        <li><a href="contactus.php" id="active">CONTACT US</a></li>
       </ul>
     </nav>
   </header>
 
-  <!--Contact Us Page-->
+  <!--Log In Page-->
   <main class="main-container">
     <section class="register-section">
       <div class="orders-img-container">
@@ -44,58 +66,38 @@
         </div>
       </div>
       <div class="register-container">
-        <h1 class="register-title">Join Us</h1>
-        <form class="register-form" action="/submit-login" method="GET">
+        <h1 class="register-title">Log In</h1>
+        <form class="register-form" method="POST">
           <div class="form-input-container-">
-            <div class="input-element">
-              <label for="fullName">Full Name</label>
-              <input class="form-input" type="text" id="fullName" name="fullName" size="15" maxlength="30"
-                placeholder="Enter your full name" />
-            </div>
             <div class="input-element">
               <label for="username">Username</label>
               <input class="form-input" type="text" id="userid" name="username" size="15" maxlength="30"
-                placeholder="Enter your username of choice" />
-            </div>
-            <div class="input-element">
-              <label for="email">Email</label>
-              <input class="form-input" type="email" id="adresaEmail" name="email" placeholder="Enter your email" />
+                placeholder="Enter your username" />
             </div>
             <div class="input-element">
               <label for="password">Password</label>
-              <input class="form-input" type="password" id="pass" name="password"
-                placeholder="Enter your password of choice" />
-            </div>
-            <div class="input-element">
-              <label for="cities">City</label>
-              <select name="cities" class="form-input" id="city">
-                <option value="" disabled selected>Select your city</option>
-                <option value="Gjakove">Gjakove</option>
-                <option value="Mitrovice">Mitrovice</option>
-                <option value="Peje">Peje</option>
-                <option value="Prishtine">Prishtine</option>
-                <option value="Prizren">Prizren</option>
-              </select>
+              <input class="form-input" type="password" id="pass" name="password" size="15" maxlength="30"
+                placeholder="Enter your password" />
             </div>
           </div>
           <button class="register-button" type="submit" value="Subscribe">
-            Register
+            Log In
           </button>
           <p class="bottom-text">
-            Already have an account? <a class="login-link" href="login.html">Log in</a>
+            Don't have an account? <a class="login-link" href="contactus.php">Sign Up</a>
           </p>
         </form>
       </div>
     </section>
 
   </main>
-
-  <!--Footeri-->
+  <!--Footer-->
   <footer>
     <div class="footer-content">
       <div class="footer-contact">
         <h4>Contact Us</h4>
         <p>+38344722232</p>
+        <p>daisycafe@gmail.com</p>
         <p>PRISHTINE</p>
         <p>DARDANI</p>
       </div>
@@ -104,11 +106,11 @@
           <i>A journey into timeless elegance <br> and modern comfort.</i>
         </p>
         <nav class="footer-nav">
-          <a href="index.html">HOME</a>
-          <a href="menu.html">MENU</a>
-          <a href="about.html">ABOUT US</a>
-          <a href="events.html">EVENTS</a>
-          <a href="contactus.html">CONTACT US</a>
+          <a href="index.php">HOME</a>
+          <a href="menu.php">MENU</a>
+          <a href="about.php">ABOUT US</a>
+          <a href="events.php">EVENTS</a>
+          <a href="contactus.php">CONTACT US</a>
         </nav>
         <p class="footer-copyright">
           Copyright © 2024 DaisyCafe. All rights reserved.
@@ -116,7 +118,7 @@
       </div>
   </footer>
 
-  <script src="javascript/contactus.js"></script>
+  <script src="javascript/login.js"></script>
 
 </body>
 

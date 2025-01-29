@@ -4,15 +4,14 @@ document.addEventListener("DOMContentLoaded", function (ngjarja) {
 
     const validate = (ngjarja) => {
         ngjarja.preventDefault();
-        const fullName = document.getElementById("fullName");
+        const name = document.getElementById("name");
         const username = document.getElementById("userid");
         const email = document.getElementById("adresaEmail");
         const password = document.getElementById("pass");
-        const city = document.getElementById("city");
 
-        const fullNameValidim = (fullName) => {
-            const fullNameRegex = /^[A-Za-z\s]{3,}$/;
-            return fullNameRegex.test(fullName);
+        const nameValidim = (name) => {
+            const nameRegex = /^[A-Za-z\s]{3,}$/;
+            return nameRegex.test(name);
         }
 
         const usernameValidim = (username) => {
@@ -30,14 +29,14 @@ document.addEventListener("DOMContentLoaded", function (ngjarja) {
             return passwordRegex.test(password);
         };
 
-        if (fullName.value === "") {
-            alert("Please enter your full name.");
-            fullName.focus();
+        if (name.value === "") {
+            alert("Please enter your name.");
+            name.focus();
             return false;
         }
-        if (!fullNameValidim(fullName.value)) {
-            alert("Full Name must contain at least 3 letters and only letters and spaces.");
-            fullName.focus();
+        if (!nameValidim(name.value)) {
+            alert("Name must contain at least 3 letters and only letters and spaces.");
+            name.focus();
             return false;
         }
         if (username.value === "") {
@@ -70,17 +69,13 @@ document.addEventListener("DOMContentLoaded", function (ngjarja) {
             password.focus();
             return false;
         }
-        if (city.value === "") {
-            alert("Please select your city.");
-            city.focus();
-            return false;
-        }
 
         alert("Form submitted successfully!");
-        window.location.href = "menu.html";
+        form.submit();
+        return true;
     };
 
-    form.addEventListener("submit", validate);
+    form.addEventListener('submit', validate);
 });
 
 

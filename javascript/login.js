@@ -38,9 +38,11 @@ document.addEventListener("DOMContentLoaded", function (ngjarja) {
             return false;
         }
 
-        alert("Form submitted successfully!");
-        window.location.href = "menu.html";
+        alert("Form submitted successfully!"); 
+        form.submit();
+        return true;
+
     };
 
-    form.addEventListener("submit", validate);
+    form.addEventListener('submit', validate);
 });

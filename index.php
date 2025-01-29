@@ -16,17 +16,17 @@
     <header>
         <nav class="navbar">
             <ul class="nav-links">
-                <li><a href="index.html" id="active">HOME</a></li>
-                <li><a href="menu.html">MENU</a></li>
+                <li><a href="index.php" id="active">HOME</a></li>
+                <li><a href="menu.php">MENU</a></li>
             </ul>
             <div class="logo">
                 <img src="img/Logo.png" alt="Daisy Logo">
                 <h1>DAISY</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="events.html">EVENTS</a></li>
-                <li><a href="contactus.html">CONTACT US</a></li>
+                <li><a href="about.php">ABOUT</a></li>
+                <li><a href="events.php">EVENTS</a></li>
+                <li><a href="contactus.php">CONTACT US</a></li>
             </ul>
         </nav>
     </header>
@@ -52,23 +52,23 @@
     <div class="containerrr">
         <div class="category">
             <img src="img/foto1.png" alt="ICED COFFEE">
-            <button class="posht-categoris" onclick="location.href='menu.html'">ICED COFFEE</button>
+            <button class="posht-categoris" onclick="location.href='menu.php'">ICED COFFEE</button>
         </div>
         <div class="category">
             <img src="img/foto5.png" alt="NONE-COFFEE">
-            <button class="posht-categoris" onclick="location.href='menu.html'">NONE-COFFEE</button>
+            <button class="posht-categoris" onclick="location.href='menu.php'">NONE-COFFEE</button>
         </div>
         <div class="category">
             <img src="img/foto3.png" alt="ESPRESSO COFFEE">
-            <button class="posht-categoris" onclick="location.href='menu.html'">ESPRESSO COFFEE</button>
+            <button class="posht-categoris" onclick="location.href='menu.php'">ESPRESSO COFFEE</button>
         </div>
         <div class="category">
             <img src="img/foto4.png" alt="ALTERNATIVE MILKS">
-            <button class="posht-categoris" onclick="location.href='menu.html'">ALTERNATIVE MILKS</button>
+            <button class="posht-categoris" onclick="location.href='menu.php'">ALTERNATIVE MILKS</button>
         </div>
         <div class="category">
             <img src="img/foto2.png" alt="SPECIALTY COFFEE">
-            <button class="posht-categoris" onclick="location.href='menu.html'">SPECIALTY COFFEE</button>
+            <button class="posht-categoris" onclick="location.href='menu.php'">SPECIALTY COFFEE</button>
         </div>
 
     </div>
@@ -91,7 +91,7 @@
         <section class="description">
             <p>Daisy is a combination of classic flavors and modern designs that makes every meal an unforgettable one!
             </p>
-            <button class="seemore-button" onclick="location.href='menu.html'">SEE MORE</button>
+            <button class="seemore-button" onclick="location.href='menu.php'">SEE MORE</button>
 
         </section>
     </div>
@@ -161,11 +161,11 @@
                     <i>A journey into timeless elegance <br> and modern comfort.</i>
                 </p>
                 <nav class="footer-nav">
-                    <a href="index.html">HOME</a>
-                    <a href="menu.html">MENU</a>
-                    <a href="about.html">ABOUT US</a>
-                    <a href="events.html">EVENTS</a>
-                    <a href="contactus.html">CONTACT US</a>
+                    <a href="index.php">HOME</a>
+                    <a href="menu.php">MENU</a>
+                    <a href="about.php">ABOUT US</a>
+                    <a href="events.php">EVENTS</a>
+                    <a href="contactus.php">CONTACT US</a>
                 </nav>
                 <p class="footer-copyright">
                     Copyright © 2024 DaisyCafe. All rights reserved.

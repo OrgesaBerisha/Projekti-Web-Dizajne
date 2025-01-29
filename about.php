@@ -15,17 +15,17 @@
     <header>
         <nav class="navbar">
             <ul class="nav-links">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="menu.html">MENU</a></li>
+                <li><a href="index.php">HOME</a></li>
+                <li><a href="menu.php">MENU</a></li>
             </ul>
             <div class="logo">
                 <img src="img/Logo.png" alt="Daisy Logo">
                 <h1>DAISY</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="about.html" id="active">ABOUT</a></li>
-                <li><a href="events.html">EVENTS</a></li>
-                <li><a href="contactus.html">CONTACT US</a></li>
+                <li><a href="about.php" id="active">ABOUT</a></li>
+                <li><a href="events.php">EVENTS</a></li>
+                <li><a href="contactus.php">CONTACT US</a></li>
             </ul>
         </nav>
     </header>
@@ -139,11 +139,11 @@
                     <i>A journey into timeless elegance <br> and modern comfort.</i>
                 </p>
                 <nav class="footer-nav">
-                    <a href="index.html">HOME</a>
-                    <a href="menu.html">MENU</a>
-                    <a href="about.html">ABOUT US</a>
-                    <a href="events.html">EVENTS</a>
-                    <a href="contactus.html">CONTACT US</a>
+                    <a href="index.php">HOME</a>
+                    <a href="menu.php">MENU</a>
+                    <a href="about.php">ABOUT US</a>
+                    <a href="events.php">EVENTS</a>
+                    <a href="contactus.php">CONTACT US</a>
                 </nav>
                 <p class="footer-copyright">
                     Copyright © 2024 DaisyCafe. All rights reserved.
