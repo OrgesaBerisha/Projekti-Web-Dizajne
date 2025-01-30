@@ -13,21 +13,24 @@ class User
         }
     }
 
-    public function register($name, $username, $email, $password, $role = 'user')
+    public function register($name, $username, $email, $password)
     {
+        // Vendos rolin në 'admin' për email-at që përfundojnë me @example.com, përndryshe 'user'
+        $role = (strpos($email, '@example.com') !== false) ? 'admin' : 'user';
+    
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        $query = "INSERT INTO {$this->table_name} (name, username, email, password,role)
+    
+        $query = "INSERT INTO {$this->table_name} (name, username, email, password, role)
                   VALUES (:name, :username, :email, :password, :role)";
-
+    
         $stmt = $this->conn->prepare($query);
-
+    
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $hashedPassword);
         $stmt->bindParam(':role', $role);
-
+    
         if ($stmt->execute()) {
             return true;
         } else {
@@ -35,10 +38,11 @@ class User
             return false;
         }
     }
+    
 
     public function login($username, $password)
     {
-        $query = "SELECT id, name, username, email, password FROM {$this->table_name} WHERE username = :username";
+        $query = "SELECT id, name, username, email, password, role FROM {$this->table_name} WHERE username = :username";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':username', $username);
@@ -58,4 +62,51 @@ class User
         }
         return false;
     }
+
+   
+
+
+
+ // Funksioni për editimin e përdoruesit
+ public function updateUser($id, $name, $username, $email, $password, $role)
+
+ {
+     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+     $query = "UPDATE {$this->table_name} SET name = :name, username = :username, email = :email, password = :password, role = :role WHERE id = :id";
+
+     $stmt = $this->conn->prepare($query);
+
+     $stmt->bindParam(':id', $id);
+     $stmt->bindParam(':name', $name);
+     $stmt->bindParam(':username', $username);
+     $stmt->bindParam(':email', $email);
+     $stmt->bindParam(':password', $hashedPassword);
+     $stmt->bindParam(':role', $role);
+
+     if ($stmt->execute()) {
+         return true;
+     } else {
+         echo "Error: " . $stmt->errorInfo()[2];
+         return false;
+     }
+ }
+
+ // Funksioni për fshirjen e përdoruesit
+ public function delete($id)
+ {
+     $query = "DELETE FROM {$this->table_name} WHERE id = :id";
+
+     $stmt = $this->conn->prepare($query);
+     $stmt->bindParam(':id', $id);
+
+     if ($stmt->execute()) {
+         return true;
+     } else {
+         echo "Error: " . $stmt->errorInfo()[2];
+         return false;
+     }
+ }
 }
+
+?>
