@@ -13,12 +13,12 @@ class User
         }
     }
 
-    public function register($name, $username, $email, $password)
+    public function register($name, $username, $email, $password, $role = 'user')
     {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $query = "INSERT INTO {$this->table_name} (name, username, email, password)
-                  VALUES (:name, :username, :email, :password)";
+        $query = "INSERT INTO {$this->table_name} (name, username, email, password,role)
+                  VALUES (:name, :username, :email, :password, :role)";
 
         $stmt = $this->conn->prepare($query);
 
@@ -26,6 +26,7 @@ class User
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $hashedPassword);
+        $stmt->bindParam(':role', $role);
 
         if ($stmt->execute()) {
             return true;
@@ -50,6 +51,8 @@ class User
                 session_start();
                 $_SESSION['user_id'] = $row['id'];
                 $_SESSION['username'] = $row['username'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['role'] = $row['role'];
                 return true;
             }
         }

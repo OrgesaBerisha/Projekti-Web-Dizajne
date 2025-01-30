@@ -12,13 +12,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     if ($user->login($username, $password)) {
-        header("Location: menu.php");
+        // Merr të dhënat e përdoruesit nga sesioni
+        $user_email = $_SESSION['email'];
+
+        // Kontrollo nëse emaili është admin (p.sh., nëse përfundon me @example.com)
+        if (strpos($user_email, "@example.com") !== false) {
+            $_SESSION['role'] = 'admin';
+            header("Location: admin_dashboard.php");
+        } else {
+            $_SESSION['role'] = 'user';
+            header("Location: menu.php");
+        }
         exit;
     } else {
         echo "Invalid login credentials!";
     }
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
