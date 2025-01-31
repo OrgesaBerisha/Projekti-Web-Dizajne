@@ -1,11 +1,32 @@
 <?php
-/*session_start();
-if(isset($_SESSION['user_id'])){
-    header("Location: login.php");
-    exit;
+require_once 'Database.php';
+
+class Menu {
+    private $db;
+
+    public function __construct() {
+        $database = new Database(); 
+        $this->db = $database->getConnection(); // Get PDO connection
+    }
+
+    public function getMenuItems($category) {
+        $query = "SELECT * FROM menu_items WHERE category = :category";
+        $stmt = $this->db->prepare($query); // Now using the actual PDO connection
+        $stmt->bindParam(':category', $category);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
-echo "Welcome," . $_SESSION['username'] . "!";*/
+
+$menu = new Menu();
+
+$icedCoffee = $menu->getMenuItems('Iced Coffee');
+$noneCoffee = $menu->getMenuItems('None Coffee');
+$espressoCoffee = $menu->getMenuItems('Espresso Coffee');
+$alternativeMilks = $menu->getMenuItems('Alternative Milks');
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,141 +67,59 @@ echo "Welcome," . $_SESSION['username'] . "!";*/
 
 
     <section class="menu">
-        <!--ICED COFFE-->
-
         <h2>ICED COFFE</h2>
         <div class="menut">
-            <div class="menu-item">
-                <img src="img/Iced Coffee.png" alt="iced-coffee">
-                <h3>Iced Coffee</h3>
-                <p>Chill out with a perfect blend </p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="img/Iced Latte.png" alt="Iced Coffe">
-                <h3>Iced Latte</h3>
-                <p>Creamy, cool, and caffeinated </p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="img/iced mochaa.png" alt="Iced Mocha">
-                <h3>Iced Mocha</h3>
-                <p>Soothe your soul with the best</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="img/iced strawberry.png" alt="iced strawberry">
-                <h3>Iced MilkShake</h3>
-                <p>Sip on something smooth, cool,</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-
+            <?php foreach ($icedCoffee as $item): ?>
+                <div class="menu-item">
+                    <img src="<?= $item['image']; ?>" alt="<?= $item['name']; ?>">
+                    <h3><?= $item['name']; ?></h3>
+                    <p><?= $item['description']; ?></p>
+                    <p class="price">$<?= $item['price']; ?></p>
+                    <button class="order-btn">Order Now</button>
+                </div>
+            <?php endforeach; ?>
         </div>
-        <!--NONE COFFE-->
+
         <h2>NONE COFFE</h2>
         <div class="menut">
-            <div class="menu-item">
-                <img src="img/hot choclate2 .png" alt="Hot chocolate">
-                <h3>Hot chocolate</h3>
-                <p>Creamy, Sweet & Decadent</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="img/chai latte3.png" alt="Chai latte">
-                <h3>Chai latte</h3>
-                <p>Spicy, Creamy & Aromatic</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="img/draggonfruit drink2.png" alt="Dragon Fruit Drink">
-                <h3>Dragon Fruit Drink</h3>
-                <p>Tropical, Refreshing & Sweet</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="img/matcha latte3.png" alt="Matcha Latte">
-                <h3>Matcha Latte</h3>
-                <p> Earthy, Creamy & Vibran</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-
+            <?php foreach ($noneCoffee as $item): ?>
+                <div class="menu-item">
+                    <img src="<?= $item['image']; ?>" alt="<?= $item['name']; ?>">
+                    <h3><?= $item['name']; ?></h3>
+                    <p><?= $item['description']; ?></p>
+                    <p class="price">$<?= $item['price']; ?></p>
+                    <button class="order-btn">Order Now</button>
+                </div>
+            <?php endforeach; ?>
         </div>
-        <!--ESSSPRESO COFFE-->
-        <h2> ESSPRESO COFFE </h2>
+
+        <h2>ESSPRESO COFFE</h2>
         <div class="menut">
-            <div class="menu-item">
-                <img src="img/Esspreso.png" alt="Esspreso">
-                <h3>Esspreso</h3>
-                <p>Rich, Bold & Smooth</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="img/cappuciono.png" alt="Cappuccino">
-                <h3>Cappuccino</h3>
-                <p>Frothy, Smooth & Balanced</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="img/Americane.png" alt="Americano">
-                <h3> Americano</h3>
-                <p>Rich, Light & Crisp</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="img/doppio(double esspreso)2.png" alt="Doppio (Double esspreso)">
-                <h3>Doppio </h3>
-                <p>Deep, Intense & Pure</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-
+            <?php foreach ($espressoCoffee as $item): ?>
+                <div class="menu-item">
+                    <img src="<?= $item['image']; ?>" alt="<?= $item['name']; ?>">
+                    <h3><?= $item['name']; ?></h3>
+                    <p><?= $item['description']; ?></p>
+                    <p class="price">$<?= $item['price']; ?></p>
+                    <button class="order-btn">Order Now</button>
+                </div>
+            <?php endforeach; ?>
         </div>
-        <!--ALTERNATIVE MILKS-->
-        <h2> ALTERNATIVE MILKS</h2>
+
+        <h2>ALTERNATIVE MILKS</h2>
         <div class="menut">
-            <div class="menu-item">
-                <img src="img/soy latte2.png" alt="Soy latte">
-                <h3>Soy latte</h3>
-                <p> Velvety, Rich, Dairy-Free</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="img/almond milk latte3.png" alt="Almond Milk latte">
-                <h3>Almond Milk latte</h3>
-                <p>Creamy, Subtle & Fragrant</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="img/choclate milk latte.png" alt="Chocolate Milk Coffe">
-                <h3> Chocolate Milk </h3>
-                <p>Rich, Light & CrispChocolatey</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-            <div class="menu-item">
-                <img src="img/oat milk late2.png" alt="Oat Millk">
-                <h3>Oat Millk </h3>
-                <p>Mild, Buttery, Velvety</p>
-                <p class="price">$4</p>
-                <button class="order-btn">Order Now</button>
-            </div>
-
+            <?php foreach ($alternativeMilks as $item): ?>
+                <div class="menu-item">
+                    <img src="<?= $item['image']; ?>" alt="<?= $item['name']; ?>">
+                    <h3><?= $item['name']; ?></h3>
+                    <p><?= $item['description']; ?></p>
+                    <p class="price">$<?= $item['price']; ?></p>
+                    <button class="order-btn">Order Now</button>
+                </div>
+            <?php endforeach; ?>
         </div>
-
     </section>
+
     <!--Footeri-->
     <footer>
         <div class="footer-content">
