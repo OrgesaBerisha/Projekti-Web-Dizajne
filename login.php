@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <ul class="nav-links">
         <li><a href="index.php">HOME</a></li>
         <li><a href="menu.php">MENU</a></li>
+        <li><a href="messages.php">SEND A MESSAGE</a></li>
       </ul>
       <div class="logo">
         <img src="img/Logo.png" alt="Daisy Logo">

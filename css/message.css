@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&family=Merienda:wght@300..900&display=swap");
+
+/* Contact Form Container */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 20px;
+    background-color: #d0c9b5;
+}
+
+.contact-left {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.contact-left h1 {
+    color: #333;
+    margin-bottom: 10px;
+    font-family: "Merienda", cursive;
+}
+
+.contact-left p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Contact Info */
+.contact-info {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.info-item p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Contact Form */
+.contact-right form {
+    display: flex;
+    flex-direction: column;
+    font-family: "Merienda", cursive;
+}
+
+.contact-right input, .contact-right textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.contact-right textarea {
+    height: 100px;
+    resize: none;
+}
+
+#send-btn {
+    background-color: #d0c9b5;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    
+}
+
+#send-btn:hover {
+    background-color:  #836758;
+}

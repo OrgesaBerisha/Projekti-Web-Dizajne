@@ -11,19 +11,21 @@
 
 <body>
 
-    <!--NavBar-->
+<body>
     <header>
         <nav class="navbar">
             <ul class="nav-links">
-                <li><a href="index.php">HOME</a></li>
+                <li><a href="index.php" id="active">HOME</a></li>
                 <li><a href="menu.php">MENU</a></li>
+                <li><a href="message.php">SEND A MESSAGE</a></li>
+
             </ul>
             <div class="logo">
                 <img src="img/Logo.png" alt="Daisy Logo">
                 <h1>DAISY</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="about.php" id="active">ABOUT</a></li>
+                <li><a href="about.php">ABOUT</a></li>
                 <li><a href="events.php">EVENTS</a></li>
                 <li><a href="contactus.php">CONTACT US</a></li>
             </ul>
