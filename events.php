@@ -1,3 +1,27 @@
+<?php
+require_once 'Database.php';
+
+class Event {
+    private $db;
+
+    public function __construct(){
+        $database = new Database();
+        $this->db = $database->getConnection();
+    }
+
+    public function getEvents(){
+        $query = "SELECT * FROM events ORDER BY date ASC";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
+$event = new Event();
+$events = $event->getEvents();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,35 +55,18 @@
     </header>
 
     <main>
-        <section class="events-section">
+    <section class="events-section">
             <h1>Upcoming Events at Daisy</h1>
-            <div class="event-card">
-                <img src="img/livemusic.png" alt="Live Music">
-                <div class="event-info">
-                    <h2>Live Music Night</h2>
-                    <p><strong>Date:</strong>February 15, 2025</p>
-                    <p>experience an evening of live acoustic performances while enjoying your favorite cup of coffee
-                    </p>
+            <?php foreach ($events as $eventItem): ?>
+                <div class="event-card">
+                    <img src="img/<?= $eventItem['image']; ?>" alt="<?= $eventItem['title']; ?>">
+                    <div class="event-info">
+                        <h2><?= $eventItem['title']; ?></h2>
+                        <p><strong>Date:</strong> <?= date('F d, Y', strtotime($eventItem['date'])); ?></p>
+                        <p><?= $eventItem['description']; ?></p>
+                    </div>
                 </div>
-            </div>
-            <div class="event-card">
-                <img src="img/coffetasting.png" alt="Coffe Tasting">
-                <div class="event-info">
-                    <h2>Coffee Tasting Workshop</h2>
-                    <p><strong>Date:</strong> February 22, 2025</p>
-                    <p>Join us to explore the rich flavors of specialty coffee and learn the art of tasting like a pro.
-                    </p>
-                </div>
-            </div>
-            <div class="event-card">
-                <img src="img/artshow.png" alt="Art Showcase">
-                <div class="event-info">
-                    <h2>Local Art Showcase</h2>
-                    <p><strong>Date:</strong> March 10, 2025</p>
-                    <p>Discover local talent as we transform our coffee shop into an art gallery for one special night.
-                    </p>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </section>
     </main>
 
