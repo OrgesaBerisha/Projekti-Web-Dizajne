@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'php/Database.php';
 require_once 'php/AdminMenu.php';
 
@@ -124,6 +125,39 @@ $alternativeMilks = $menu->getMenuItems('Alternative Milks');
             <?php endforeach; ?>
         </div>
     </section>
+
+      <!-- Butoni Logout në fund të faqes (shfaqet vetëm nëse përdoruesi është i kyçur) -->
+    <?php if (isset($_SESSION['user_id'])): ?>
+        <div class="logout-container">
+            <a href="php/logout.php" class="logout-button">LOGOUT</a>
+        </div>
+    <?php endif; ?>
+
+    <style>
+    /* CSS for logout button */
+    .logout-container{
+        text-align: center;
+        margin: 40px ;
+    }
+    .logout-button{
+        display: inline-block;
+        background-color: #836758 ;
+        color: black;
+        padding: 12px 25px;
+        font-size: 18px;
+        font-family: "Merienda", cursive;
+        text-decoration: none;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+    .logout-button:hover{
+        background-color: #fff8e1;
+        transform: translateY(-3px);
+    }
+    
+</style>
+
 
     <!--Footeri-->
     <footer>

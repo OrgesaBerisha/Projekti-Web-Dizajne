@@ -63,9 +63,6 @@ if (isset($_GET['delete_menu'])) {
 
 $logs = $adminMenu->getChangeLogs();
 
-
-
-
     
 ?>
 

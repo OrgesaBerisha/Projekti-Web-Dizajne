@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
 
         // Përdor funksionin për të përditësuar përdoruesin
         if ($user->updateUser($user_id, $name, $username, $email, $password, $role)) {
-            header("Location: admin_dashboard.php");
+            header("Location: ../admin_dashboard.php");
             exit;
         } else {
             echo "Ka ndodhur një gabim gjatë përditësimit!";

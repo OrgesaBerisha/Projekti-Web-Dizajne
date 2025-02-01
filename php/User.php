@@ -15,8 +15,8 @@ class User
 
     public function register($name, $username, $email, $password)
     {
-        // Vendos rolin në 'admin' për email-at që përfundojnë me @example.com, përndryshe 'user'
-        $role = (strpos($email, '@example.com') !== false) ? 'admin' : 'user';
+        // Vendos rolin në 'admin' për email-at që përfundojnë me @daisy.com, përndryshe 'user'
+        $role = (strpos($email, '@daisy.com') !== false) ? 'admin' : 'user';
     
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     

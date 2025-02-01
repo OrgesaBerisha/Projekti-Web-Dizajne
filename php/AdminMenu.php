@@ -25,11 +25,6 @@ class AdminMenu {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    
-
-    
-
-
     public function addMenuItem($name, $description, $price, $category, $image) {
         // Validoni imazhin
         if ($_FILES['image']['error'] == 0) {
@@ -130,13 +125,8 @@ class AdminMenu {
         $stmt->bindParam(':details', $details);
         $stmt->execute();
     }
-
-    
     
 }
-
-
-
 
 $adminMenu = new AdminMenu();
 
