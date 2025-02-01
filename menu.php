@@ -1,5 +1,10 @@
 <?php
 require_once 'Database.php';
+require_once 'AdminMenu.php';
+
+$adminMenu = new AdminMenu();
+$menuItems = $adminMenu->getAllMenuItems();
+
 
 class Menu {
     private $db;

@@ -63,9 +63,6 @@ class User
         return false;
     }
 
-   
-
-
 
  // Funksioni për editimin e përdoruesit
  public function updateUser($id, $name, $username, $email, $password, $role)

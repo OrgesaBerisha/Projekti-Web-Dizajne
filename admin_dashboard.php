@@ -3,6 +3,8 @@ session_start();
 include_once 'Database.php';
 include_once 'User.php';
 include_once 'contactRepository.php';
+include_once 'AdminMenu.php';
+
 
 // Kontrollo nëse përdoruesi është i kyçur dhe është admin
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
@@ -14,6 +16,25 @@ $db = new Database();
 $connection = $db->getConnection();
 $user = new User($connection);
 $contactRepo = new ContactRepository();
+$adminMenu = new AdminMenu();
+
+$menuItems = $adminMenu->getAllMenuItems();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['add'])) {
+        $adminMenu->addMenuItem($_POST['name'], $_POST['description'], $_POST['price'], $_POST['category'], $_FILES['image']);
+    } elseif (isset($_POST['delete'])) {
+        $adminMenu->deleteMenuItem($_POST['id']);
+    }
+    header("Location: admin_dashboard.php");
+    exit;
+}
+if (isset($_GET['delete_menu'])) {
+    $menuid = $_GET['delete_menu'];
+    $adminMenu->deleteMenuItem($menuid);
+    header("Location: admin_dashboard.php");
+    exit;
+}
 
 // Merr të gjithë përdoruesit nga databaza
 $query = "SELECT * FROM user";
@@ -28,6 +49,14 @@ $messages = $contactRepo->getAllMessages();
 if (isset($_GET['delete_message'])) {
     $message_id = $_GET['delete_message'];
     $contactRepo->deleteMessage($message_id);
+    header("Location: admin_dashboard.php");
+    exit;
+}
+
+// Fshirja e produkteve
+if (isset($_GET['delete_menu'])) {
+    $menuid = $_GET['delete_menu'];
+    $adminMenu->deleteMenuItem($menuid);
     header("Location: admin_dashboard.php");
     exit;
 }
@@ -112,7 +141,51 @@ if (isset($_GET['delete_message'])) {
         </tbody>
     </table>
 </div>
+<div class="container">
+    <h3>Menu Management</h3>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="description" placeholder="Description" required>
+        <input type="number" name="price" placeholder="Price" step="0.01" required>
+        <input type="text" name="category" placeholder="Category" required>
+        <input type="file" name="image" required>
+        <button type="submit" name="add">Add Item</button>
+    </form>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+        <?php foreach ($menuItems as $item): ?>
+        <tr>
+            <td><?= $item['name'] ?></td>
+            <td><?= $item['description'] ?></td>
+            <td>$<?= $item['price'] ?></td>
+            <td><?= $item['category'] ?></td>
+            <td><img src="<?= $item['image'] ?>" width="50"></td>
+            <td>
+                <form method="POST">
+                    <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                    <!-- <button type="submit" name="delete" class="button delete">Delete</button> -->
+                    <button type="button" class="button delete" onclick="deleteMenuItem(<?php echo $item['id']; ?>)">Delete</button>
+                </form>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+</div>
 
 </body>
+<script>
+ function deleteMenuItem(id) {
+    if (confirm("Are you sure you want to delete this item?")) {
+        window.location.href = "admin_dashboard.php?delete_menu=" + id;
+    }
+}
+</script>
 </html>
 
