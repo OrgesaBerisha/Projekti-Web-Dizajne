@@ -104,8 +104,9 @@ $logs = $adminMenu->getChangeLogs();
                 <td><?php echo $user['email']; ?></td>
                 <td><?php echo $user['role']; ?></td>
                 <td>
-                    <a href="edit.php?id=<?php echo $user['id']; ?>" class="button">Edit</a>
-                    <a href="?delete_id=<?php echo $user['id']; ?>" class="button delete" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+                    <a href="php/edit.php?id=<?php echo $user['id']; ?>" class="button">Edit</a>
+                    <a href="php/delete.php?id=<?php echo $user['id']; ?>" class="button delete" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+
                 </td>
             </tr>
             <?php endforeach; ?>
