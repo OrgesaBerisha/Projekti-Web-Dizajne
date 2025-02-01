@@ -60,6 +60,13 @@ if (isset($_GET['delete_menu'])) {
     header("Location: admin_dashboard.php");
     exit;
 }
+
+$logs = $adminMenu->getChangeLogs();
+
+
+
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -170,6 +177,43 @@ if (isset($_GET['delete_menu'])) {
         <?php endforeach; ?>
     </table>
 </div>
+
+<div class="container">
+    <h3>Change Logs</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Action</th>
+                <th>Table</th>
+                <th>Details</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($logs as $log): ?>
+            <tr>
+                <td><?php echo $log['action']; ?></td>
+                <td><?php echo $log['table_name']; ?></td>
+                <td>
+                    <?php
+                    $details = json_decode($log['details'], true);
+                    echo "Name: " . $details['name'] . "<br>";
+                    echo "Description: " . $details['description'] . "<br>";
+                    echo "Price: $" . $details['price'] . "<br>";
+                    echo "Category: " . $details['category'] . "<br>";
+                    echo "Image: <img src='" . $details['image'] . "' width='50'>";
+                    ?>
+                </td>
+                <td><?php echo $log['created_at']; ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+
+
+
 
 </body>
 <script>

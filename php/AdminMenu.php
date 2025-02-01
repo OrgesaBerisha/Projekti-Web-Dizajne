@@ -2,6 +2,7 @@
 
 require_once 'Database.php';
 
+ 
 class AdminMenu {
     private $db;
 
@@ -16,6 +17,18 @@ class AdminMenu {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getChangeLogs() {
+        $query = "SELECT * FROM change_logs ORDER BY created_at DESC";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    
+
+    
+
 
     public function addMenuItem($name, $description, $price, $category, $image) {
         // Validoni imazhin
@@ -61,7 +74,13 @@ class AdminMenu {
                 $stmt2->bindParam(':category', $category);
                 $stmt2->bindParam(':image', $imagePath);
                 $stmt2->bindParam(':menuid', $menuid);
-                return $stmt2->execute();
+                $stmt2->execute();
+
+
+                  
+        // Log the change
+        $this->logChange('INSERT', 'menu_items', $name, $description, $price, $category, $imagePath);
+        return true;
             } else {
                 echo "Dështoi ngarkimi i imazhit.";
                 return false;
@@ -73,20 +92,72 @@ class AdminMenu {
     }
     
     public function deleteMenuItem($id) {
+
+
+
+
         // First, delete from menu_admin
         $query1 = "DELETE FROM menu_admin WHERE menuid = :id";
         $stmt1 = $this->db->prepare($query1);
         $stmt1->bindParam(':id', $id);
         $stmt1->execute(); 
+
+
+        
+
+     
     
         // Then, delete from menu_items
         $query2 = "DELETE FROM menu_items WHERE id = :id";
         $stmt2 = $this->db->prepare($query2);
         $stmt2->bindParam(':id', $id);
-        return $stmt2->execute(); 
-    }
+         $stmt2->execute();
+
+
+    
+    // First, get the item name based on the ID
+    $query3 = "SELECT name FROM menu_items WHERE id = :id";
+    $stmt3 = $this->db->prepare($query3);
+    $stmt3->bindParam(':id', $id);
+    $stmt3->execute();
+    $item = $stmt3->fetch(PDO::FETCH_ASSOC);
+
+    // Log the change
+    $this->logChange('DELETE', 'menu_items', $item['name'], '', '', '', '');
+    
+    return true;
+
+ 
+}
+
+private function logChange($action, $tableName, $name, $description, $price, $category, $image) {
+    $userId = 1; // You can set this based on the logged-in user (admin)
+    
+    $details = json_encode(compact('name', 'description', 'price', 'category', 'image'));
+    
+    $query = "INSERT INTO change_logs (action, table_name, user_id, details) 
+              VALUES (:action, :table_name, :user_id, :details)";
+    $stmt = $this->db->prepare($query);
+    
+    $stmt->bindParam(':action', $action);
+    $stmt->bindParam(':table_name', $tableName);
+    $stmt->bindParam(':user_id', $userId);
+    $stmt->bindParam(':details', $details);
+    
+    $stmt->execute();
+}
+
+     
+
+
+
+   
+
     
 }
+
+
+
 
 $adminMenu = new AdminMenu();
 
