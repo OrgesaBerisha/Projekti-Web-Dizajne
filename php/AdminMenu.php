@@ -92,67 +92,46 @@ class AdminMenu {
     }
     
     public function deleteMenuItem($id) {
-
-
-
-
-        // First, delete from menu_admin
+        // Get the name of the item before deleting
+        $query = "SELECT name FROM menu_items WHERE id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $item = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        // Delete from menu_admin first
         $query1 = "DELETE FROM menu_admin WHERE menuid = :id";
         $stmt1 = $this->db->prepare($query1);
         $stmt1->bindParam(':id', $id);
-        $stmt1->execute(); 
-
-
+        $stmt1->execute();
         
-
-     
-    
-        // Then, delete from menu_items
+        // Then delete from menu_items
         $query2 = "DELETE FROM menu_items WHERE id = :id";
         $stmt2 = $this->db->prepare($query2);
         $stmt2->bindParam(':id', $id);
-         $stmt2->execute();
+        $stmt2->execute();
+        
+        // Log the change
+        $this->logChange('DELETE', 'menu_items', $item['name'], '', '', '', '');
+        
+        return true;
+    }
 
+    public function logChange($action, $tableName, $name, $description, $price, $category, $image) {
+        $userId = $_SESSION['user_id']; // Set dynamically based on logged-in user (make sure to set user_id in session)
+        $details = json_encode(compact('name', 'description', 'price', 'category', 'image'));
+
+        $query = "INSERT INTO change_logs (action, table_name, user_id, details) 
+                  VALUES (:action, :table_name, :user_id, :details)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':action', $action);
+        $stmt->bindParam(':table_name', $tableName);
+        $stmt->bindParam(':user_id', $userId);
+        $stmt->bindParam(':details', $details);
+        $stmt->execute();
+    }
 
     
-    // First, get the item name based on the ID
-    $query3 = "SELECT name FROM menu_items WHERE id = :id";
-    $stmt3 = $this->db->prepare($query3);
-    $stmt3->bindParam(':id', $id);
-    $stmt3->execute();
-    $item = $stmt3->fetch(PDO::FETCH_ASSOC);
-
-    // Log the change
-    $this->logChange('DELETE', 'menu_items', $item['name'], '', '', '', '');
-    
-    return true;
-
- 
-}
-
-private function logChange($action, $tableName, $name, $description, $price, $category, $image) {
-    $userId = 1; // You can set this based on the logged-in user (admin)
-    
-    $details = json_encode(compact('name', 'description', 'price', 'category', 'image'));
-    
-    $query = "INSERT INTO change_logs (action, table_name, user_id, details) 
-              VALUES (:action, :table_name, :user_id, :details)";
-    $stmt = $this->db->prepare($query);
-    
-    $stmt->bindParam(':action', $action);
-    $stmt->bindParam(':table_name', $tableName);
-    $stmt->bindParam(':user_id', $userId);
-    $stmt->bindParam(':details', $details);
-    
-    $stmt->execute();
-}
-
-     
-
-
-
-   
-
     
 }
 
