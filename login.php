@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once 'Database.php';
-include_once 'User.php';
+include_once 'php/Database.php';
+include_once 'php/User.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $db = new Database();
@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Merr të dhënat e përdoruesit nga sesioni
         $user_email = $_SESSION['email'];
 
-        // Kontrollo nëse emaili është admin (p.sh., nëse përfundon me @example.com)
-        if (strpos($user_email, "@example.com") !== false) {
+        // Kontrollo nëse emaili është admin (p.sh., nëse përfundon me @daisy.com)
+        if (strpos($user_email, "@daisy.com") !== false) {
             $_SESSION['role'] = 'admin';
             header("Location: admin_dashboard.php");
         } else {

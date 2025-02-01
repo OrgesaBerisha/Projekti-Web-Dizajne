@@ -100,7 +100,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $menuItems = $adminMenu->getAllMenuItems();
 ?>
-
-
-
-

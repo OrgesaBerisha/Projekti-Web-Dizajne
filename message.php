@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="contact-right">
-                    <form method="POST" action="contactController.php">
+                    <form method="POST" action="php/contactController.php">
                     
                         <h2>Send Message</h2>
                         <input type="text"   id="fname" name="name" placeholder="Full Name" required>

@@ -1,5 +1,5 @@
 <?php
-require_once 'Database.php';
+require_once 'php/Database.php';
 
 class Event {
     private $db;

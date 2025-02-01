@@ -1,6 +1,6 @@
 <?php
-require_once 'Database.php';
-require_once 'AdminMenu.php';
+require_once 'php/Database.php';
+require_once 'php/AdminMenu.php';
 
 $adminMenu = new AdminMenu();
 $menuItems = $adminMenu->getAllMenuItems();

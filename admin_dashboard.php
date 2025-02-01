@@ -1,9 +1,9 @@
 <?php
 session_start();
-include_once 'Database.php';
-include_once 'User.php';
-include_once 'contactRepository.php';
-include_once 'AdminMenu.php';
+include_once 'php/Database.php';
+include_once 'php/User.php';
+include_once 'php/contactRepository.php';
+include_once 'php/AdminMenu.php';
 
 
 // Kontrollo nëse përdoruesi është i kyçur dhe është admin
@@ -68,21 +68,13 @@ if (isset($_GET['delete_menu'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        .container { max-width: 900px; margin: auto; padding: 20px; background: white; border-radius: 8px; margin-top: 50px; }
-        .header { background-color: #d0c9b5; color: white; padding: 15px; text-align: center; font-size: 20px; }
-        .table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .table th, .table td { padding: 10px; border: 1px solid #ddd; text-align: center; }
-        .button { padding: 5px 10px; box-shadow: 0px 0px 10px gray;color: black; border-radius: 5px; text-decoration: none; }
-        .delete { background-color: red; color: white; }
-    </style>
+    <link rel="stylesheet" href="css/admin_dashboard.css">
 </head>
 <body>
 
 <div class="header">
     <h2>Admin Dashboard</h2>
-    <a href="logout.php" class="button">Log Out</a>
+    <a href="php/logout.php" class="button">Log Out</a>
 </div>
 
 <div class="container">

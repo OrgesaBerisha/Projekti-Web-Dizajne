@@ -1,6 +1,6 @@
 <?php
-include_once 'Database.php';
-include_once 'User.php';
+include_once 'php/Database.php';
+include_once 'php/User.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Form submitted successfully!";
