@@ -12,10 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     if ($user->login($username, $password)) {
-        // Merr të dhënat e përdoruesit nga sesioni
+        
         $user_email = $_SESSION['email'];
 
-        // Kontrollo nëse emaili është admin (p.sh., nëse përfundon me @daisy.com)
+        // Email eshte admin nese perfundon me Daisy
         if (strpos($user_email, "@daisy.com") !== false) {
             $_SESSION['role'] = 'admin';
             header("Location: admin_dashboard.php");

@@ -6,8 +6,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 50px 20px;
+    
+    padding: 20px 60px;
     background-color: #d0c9b5;
+    width: 100%;
 }
 
 .contact-left {
@@ -79,9 +81,76 @@
     cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
-    
 }
 
 #send-btn:hover {
     background-color:  #836758;
+}
+
+/* Responsive Design */
+
+/* Tablet and larger screen devices */
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 10px 30px;
+    }
+
+    .contact-left {
+        padding: 20px;
+        max-width: 80%;
+        text-align: center;
+    }
+
+    .contact-info {
+        margin: 15px 0;
+    }
+
+    .contact-right form {
+        padding: 15px;
+    }
+
+    .contact-right input, .contact-right textarea {
+        font-size: 16px;
+    }
+
+    #send-btn {
+        font-size: 14px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    .contact-left h1 {
+        font-size: 18px; /* Slightly larger than 10px */
+    }
+
+    .contact-left p {
+        font-size: 12px;
+    }
+
+    .contact-info {
+        font-size: 12px;
+    }
+
+    .info-item p {
+        font-size: 12px;
+    }
+
+    .contact-right input, .contact-right textarea {
+        font-size: 16px;
+    }
+
+    #send-btn {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .contact-left {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .contact-container {
+        padding: 30px 15px;
+    }
 }

@@ -55,7 +55,7 @@
 /* Stilet për tekstin e fjaLes "Category" */
 .title {
    font-family: "Merienda", cursive;
-   font-size: 100px;
+   font-size: 80px;
    color: black;
    text-align: center;
    padding-top: 20px;
@@ -266,6 +266,14 @@
 
 /*responsivteti*/
 @media (max-width: 768px) {
+
+
+
+ 
+
+
+
+
    .faqja1-left {
       padding-left: 20px;
       padding-right: 20px;

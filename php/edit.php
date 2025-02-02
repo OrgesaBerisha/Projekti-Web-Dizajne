@@ -3,7 +3,7 @@ session_start();
 include_once 'Database.php';
 include_once 'User.php';
 
-// Kontrollo nëse përdoruesi është i kyçur dhe është admin
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: login.php");
     exit;
@@ -13,11 +13,10 @@ $db = new Database();
 $connection = $db->getConnection();
 $user = new User($connection);
 
-// Kontrollo nëse është dërguar një ID e përdoruesit për editim
 if (isset($_GET['id'])) {
     $user_id = $_GET['id'];
 
-    // Merr të dhënat e përdoruesit nga databaza
+   
     $query = "SELECT * FROM user WHERE id = :id";
     $stmt = $connection->prepare($query);
     $stmt->bindParam(':id', $user_id);
@@ -25,14 +24,14 @@ if (isset($_GET['id'])) {
     $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Merr të dhënat e reja të përdoruesit nga formulari
+       
         $name = $_POST['name'];
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
         $role = $_POST['role'];
 
-        // Përdor funksionin për të përditësuar përdoruesin
+       
         if ($user->updateUser($user_id, $name, $username, $email, $password, $role)) {
             header("Location: ../admin_dashboard.php");
             exit;

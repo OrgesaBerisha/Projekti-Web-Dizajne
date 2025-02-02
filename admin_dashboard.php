@@ -6,7 +6,7 @@ include_once 'php/contactRepository.php';
 include_once 'php/AdminMenu.php';
 
 
-// Kontrollo nëse përdoruesi është i kyçur dhe është admin
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: login.php");
     exit;
@@ -36,16 +36,16 @@ if (isset($_GET['delete_menu'])) {
     exit;
 }
 
-// Merr të gjithë përdoruesit nga databaza
+
 $query = "SELECT * FROM user";
 $stmt = $connection->prepare($query);
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Merr të gjitha mesazhet nga databaza
+
 $messages = $contactRepo->getAllMessages();
 
-// Fshirja e mesazheve
+
 if (isset($_GET['delete_message'])) {
     $message_id = $_GET['delete_message'];
     $contactRepo->deleteMessage($message_id);
@@ -53,7 +53,7 @@ if (isset($_GET['delete_message'])) {
     exit;
 }
 
-// Fshirja e produkteve
+
 if (isset($_GET['delete_menu'])) {
     $menuid = $_GET['delete_menu'];
     $adminMenu->deleteMenuItem($menuid);
@@ -185,6 +185,8 @@ $logs = $adminMenu->getChangeLogs();
                 <th>Table</th>
                 <th>Details</th>
                 <th>Timestamp</th>
+                <th>User Email</th>
+
             </tr>
         </thead>
         <tbody>
@@ -203,6 +205,7 @@ $logs = $adminMenu->getChangeLogs();
                     ?>
                 </td>
                 <td><?php echo $log['created_at']; ?></td>
+                <td><?php echo $log['user_email']; ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>

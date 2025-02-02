@@ -15,7 +15,7 @@ class User
 
     public function register($name, $username, $email, $password)
     {
-        // Vendos rolin në 'admin' për email-at që përfundojnë me @daisy.com, përndryshe 'user'
+        
         $role = (strpos($email, '@daisy.com') !== false) ? 'admin' : 'user';
     
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -64,7 +64,7 @@ class User
     }
 
 
- // Funksioni për editimin e përdoruesit
+ 
  public function updateUser($id, $name, $username, $email, $password, $role)
 
  {
@@ -89,7 +89,7 @@ class User
      }
  }
 
- // Funksioni për fshirjen e përdoruesit
+ 
  public function delete($id)
  {
      $query = "DELETE FROM {$this->table_name} WHERE id = :id";

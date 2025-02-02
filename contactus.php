@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>CONTACT</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/contactus.css">
 </head>
@@ -61,10 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <div class="orders-img-container">
         <img src="./img/orders.png" class="orders-img" />
         <div class="orders-text-container">
-          <h1 class="orders-title">Online Ordering</h1>
+          <h1 class="orders-title">Our best coffee</h1>
           <p class="orders-description">
-            To make your experience a lot easier, open a new account and have
-            your coffee delivered at your door-step or your work
+          Enjoy a rich and aromatic cup of coffee, crafted to perfection, and ready to elevate your day wherever you are
           </p>
         </div>
       </div>
